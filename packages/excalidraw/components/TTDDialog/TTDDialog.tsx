@@ -224,59 +224,79 @@ const TTDDialogBase = withInternalFallback(
                 justifyContent: "space-between",
                 gap: 12,
                 flexWrap: "wrap",
+                paddingInline: "2.5rem",
+                paddingTop: "0.25rem",
                 marginBottom: 8,
               }}
             >
-              <p className="dialog-mermaid-title" style={{ margin: 0 }}>
+              <p
+                className="dialog-mermaid-title"
+                style={{ margin: 0, padding: 0 }}
+              >
                 {ttdFormat === "plantuml"
                   ? "PlantUML to Excalidraw"
                   : t("mermaid.title")}
               </p>
-              <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                {(
+                  [
+                    { id: "mermaid", label: "Mermaid (.mmd)" },
+                    { id: "plantuml", label: "PlantUML (.puml)" },
+                  ] as const
+                ).map(({ id, label }) => {
+                  const active = ttdFormat === id;
+                  return (
+                    <button
+                      key={id}
+                      type="button"
+                      style={{
+                        width: "auto",
+                        height: "auto",
+                        whiteSpace: "nowrap",
+                        padding: "6px 12px",
+                        fontSize: 13,
+                        fontWeight: 600,
+                        fontFamily: "inherit",
+                        borderRadius: 8,
+                        cursor: "pointer",
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: 6,
+                        border: active
+                          ? "1px solid var(--color-primary)"
+                          : "1px solid var(--dialog-border-color, #d6d9e4)",
+                        background: active
+                          ? "var(--color-primary)"
+                          : "var(--island-bg-color, #ffffff)",
+                        color: active
+                          ? "#ffffff"
+                          : "var(--text-primary-color, #1b1b1f)",
+                      }}
+                      onClick={() => selectTtdFormat(id)}
+                    >
+                      {label}
+                    </button>
+                  );
+                })}
                 <button
                   type="button"
-                  className="excalidraw-button"
                   style={{
-                    padding: "6px 10px",
-                    fontSize: 12,
+                    width: "auto",
+                    height: "auto",
+                    whiteSpace: "nowrap",
+                    padding: "6px 12px",
+                    fontSize: 13,
                     fontWeight: 600,
-                    background:
-                      ttdFormat === "mermaid"
-                        ? "var(--color-primary)"
-                        : undefined,
-                    color:
-                      ttdFormat === "mermaid"
-                        ? "var(--color-on-primary-container, #fff)"
-                        : undefined,
+                    fontFamily: "inherit",
+                    borderRadius: 8,
+                    cursor: "pointer",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 6,
+                    border: "1px solid var(--dialog-border-color, #d6d9e4)",
+                    background: "var(--island-bg-color, #ffffff)",
+                    color: "var(--text-primary-color, #1b1b1f)",
                   }}
-                  onClick={() => selectTtdFormat("mermaid")}
-                >
-                  Mermaid (.mmd)
-                </button>
-                <button
-                  type="button"
-                  className="excalidraw-button"
-                  style={{
-                    padding: "6px 10px",
-                    fontSize: 12,
-                    fontWeight: 600,
-                    background:
-                      ttdFormat === "plantuml"
-                        ? "var(--color-primary)"
-                        : undefined,
-                    color:
-                      ttdFormat === "plantuml"
-                        ? "var(--color-on-primary-container, #fff)"
-                        : undefined,
-                  }}
-                  onClick={() => selectTtdFormat("plantuml")}
-                >
-                  PlantUML (.puml)
-                </button>
-                <button
-                  type="button"
-                  className="excalidraw-button"
-                  style={{ padding: "6px 10px", fontSize: 12 }}
                   onClick={() => {
                     app.setOpenDialog(null);
                     window.dispatchEvent(

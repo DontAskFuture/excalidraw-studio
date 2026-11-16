@@ -2,6 +2,8 @@
 
 A self-hosted Excalidraw workspace backed by a lightweight native **Rust (`Axum`) server** ([`rust-server/`](rust-server)) and **`studio-ui/`** wrapper ([`studio-ui/`](studio-ui)). Runs directly on your machine with **no Docker container** and **no runtime Node.js server**.
 
+![Excalidraw Studio — Local Rust Workspace & Atomic Autosave](docs/screenshots/studio-workspace.png)
+
 ## Quick Start (Without Docker)
 
 ### Prerequisites (for building from source)
@@ -55,6 +57,14 @@ Supported environment variables:
   - Click **`⇄ Mermaid (.mmd)`** or **`⇄ PlantUML (.puml)`** in the left sidebar or top-right toolbar to open the split-pane code editor.
   - Supports **Flowcharts / Component / Architecture** diagrams and **Sequence** diagrams, converting Canvas ↔ Code live while preserving custom node colors and freehand sketches.
   - Companion `<scene>.mmd` and `<scene>.puml` files are saved alongside `<scene>.excalidraw`; external disk edits to `.mmd` or `.puml` are detected and synced automatically when reopening a scene.
+
+## Screenshots
+
+### Live Two-Way PlantUML & Mermaid Split-Pane Sync
+![Live Two-Way PlantUML and Mermaid Split-Pane Sync](docs/screenshots/two-way-plantuml-sync.png)
+
+### Built-in Toolbar: `More tools → Generate → PlantUML to Excalidraw`
+![Built-in Toolbar PlantUML to Excalidraw Dialog](docs/screenshots/plantuml-toolbar-dialog.png)
 
 ## Running Tests
 
