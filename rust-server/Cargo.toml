@@ -1,0 +1,22 @@
+[package]
+name = "excalidraw-rust-server"
+version = "0.1.0"
+edition = "2021"
+description = "Minimal-memory Rust Axum wrapper server for local Excalidraw with Projects, Autosave, and Two-Way Mermaid/PlantUML Sync"
+
+[dependencies]
+axum = { version = "0.7", default-features = false, features = ["http1", "json", "query", "tokio", "matched-path"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync", "time", "fs", "net", "signal"] }
+tower-http = { version = "0.5", features = ["fs", "compression-gzip"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[dev-dependencies]
+reqwest = { version = "0.12", default-features = false, features = ["json"] }
+
+[profile.release]
+opt-level = "s"
+lto = "thin"
+codegen-units = 1
+strip = true
+panic = "abort"

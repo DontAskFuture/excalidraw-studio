@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@excalidraw/common": ["../packages/common/src/index.ts"],
+      "@excalidraw/common/*": ["../packages/common/src/*"],
+      "@excalidraw/excalidraw": ["../packages/excalidraw/index.tsx"],
+      "@excalidraw/excalidraw/*": ["../packages/excalidraw/*"],
+      "@excalidraw/excalidraw/common/*": ["../packages/common/src/*"],
+      "@excalidraw/excalidraw/element/*": ["../packages/element/src/*"],
+      "@excalidraw/element": ["../packages/element/src/index.ts"],
+      "@excalidraw/element/*": ["../packages/element/src/*"],
+      "@excalidraw/fractional-indexing": ["../packages/fractional-indexing/src/index.ts"],
+      "@excalidraw/fractional-indexing/*": ["../packages/fractional-indexing/src/*"],
+      "@excalidraw/laser-pointer": ["../packages/laser-pointer/src/index.ts"],
+      "@excalidraw/laser-pointer/*": ["../packages/laser-pointer/src/*"],
+      "@excalidraw/math": ["../packages/math/src/index.ts"],
+      "@excalidraw/math/*": ["../packages/math/src/*"],
+      "@excalidraw/utils": ["../packages/utils/src/index.ts"],
+      "@excalidraw/utils/*": ["../packages/utils/src/*"]
+    }
+  },
+  "include": ["src", "../packages/excalidraw/css.d.ts", "../packages/excalidraw/global.d.ts", "../packages/excalidraw/vite-env.d.ts"]
+}
