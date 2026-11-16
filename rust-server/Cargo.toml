@@ -2,6 +2,7 @@
 name = "excalidraw-rust-server"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
 description = "Minimal-memory Rust Axum wrapper server for local Excalidraw with Projects, Autosave, and Two-Way Mermaid/PlantUML Sync"
 
 [dependencies]

@@ -65,6 +65,10 @@ This runs:
 - Frontend bidirectional Mermaid / PlantUML sync tests (`studio-ui/src/__tests__/diagramSync.test.ts` via Vitest)
 - Rust backend unit & integration tests (`rust-server` via `cargo test`)
 
+## License
+
+Released under the [MIT License](LICENSE) (Excalidraw Studio additions © 2026 Michael Liang; upstream Excalidraw © 2020 Excalidraw).
+
 ---
 
 <details>
